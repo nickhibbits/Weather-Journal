@@ -26,3 +26,13 @@ const port = 8000;
 
 const server = app.listen(port, ()=>{
   console.log(`yea bb running on localhost: ${port}`)})
+
+// GET route
+app.get('', function(req, res){
+  res.send(projectData);
+});
+
+// POST route
+app.post('', function(req, res){
+
+});
