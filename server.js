@@ -27,12 +27,23 @@ const port = 8000;
 const server = app.listen(port, ()=>{
   console.log(`yea bb running on localhost: ${port}`)})
 
-// GET route
-app.get('', function(req, res){
-  res.send(projectData);
+// POST route
+app.post('/add', function(req, res){
+  // console.log(req.body);
+  let data = req.body;
+  newEntry = {
+     temperature: data.temperature,
+     date: data.date,
+     entry: data.entry
+  }
+  projectData['entry'] = newEntry;
+  // console.log(projectData)
+  res.send(projectData)
+  // console.log(projectData);
 });
 
-// POST route
-app.post('', function(req, res){
-
+// GET route
+app.get('/updatePage', function(req, res){
+  res.send(projectData);
+  console.log(projectData)
 });
